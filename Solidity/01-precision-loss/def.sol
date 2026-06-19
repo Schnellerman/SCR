@@ -5,5 +5,7 @@ contract FixedReward {
   uint256 public constant REWARD_RATE = 500;
   uint256 public constant BASIS_POINTS = 10000;
 
-  function calculateRewardSecure(uint256 amount, uint256 daysActive)
+  function calculateRewardSecure(uint256 amount, uint256 daysActive) public pure returns (uint256) {
+    return (amount * REWARD_RATE * daysActive) / BASIS_POINTS;
+  }
 }
